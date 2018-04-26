@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stevens Helper</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="jumbotron">
+                <h1 align="center">Stevens Helper</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-10">
+            {% for b in blocks %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/posts/list/{{ b.id }}" style="font-size: 16px">{{ b.name }}</a>
+                    <span class="pull-right ">{{ b.post_nums }}</span>
+                </div>
+                <div class="panel-body">
+                    {{ b.desc }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-xs-12 col-md-2">
+            <div class="well">Personal</div>
+        </div>
+
+    </div>
+
+    <form id="Myform">
+        <input type="password" class="form-control" name="password" id="password">
+        <input type="password" class="form-control" name="cfmPassword" id="cfmPassword" >
+        <script>
+
+            $("#Myform").validate({
+                rules: {
+                    password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 10,
+
+                    },
+
+                    cfmPassword: {
+
+                        equalTo: "#password",
+                        minlength: 6,
+                        maxlength: 10
+                    }
+
+
+                }
+
+            });
+        </script>
+    </form>
+
+</div>
+</body>
+</html>

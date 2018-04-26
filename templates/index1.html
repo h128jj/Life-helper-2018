@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+//		<!--webfonts-->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
+							rel='stylesheet' type='text/css' />
+//		<!--webfonts-->
+//		<!-- Global CSS for the page and tiles -->
+  		<link rel="stylesheet" href="css/main.css" />
+//  		<!-- Global CSS for the page and tiles -->
+//		<!---start-click-drop-down-menu----->
+		<script src="js/jquery.min.js"></script>
+        <!--start-dropdown--->
+         <script type="text/javascript">
+			var $ = jQuery.noConflict();
+				$(function() {
+					$('#activator').click(function(){
+						$('#box').animate({'top':'0px'},500);
+					});
+					$('#boxclose').click(function(){
+					$('#box').animate({'top':'-700px'},500);
+					});
+				});
+				$(document).ready(function(){
+				//Hide (Collapse) the toggle containers on load
+				$(".toggle_container").hide(); 
+				//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+				$(".trigger").click(function(){
+					$(this).toggleClass("active").next().slideToggle("slow");
+						return false; //Prevent the browser jump to the link anchor
+				});
+									
+			});
+		</script>
+        <!----//End-dropdown--->
+		<!---//End-click-drop-down-menu----->
+	</head>
+	<body>
+		<!---start-wrap---->
+			<!---start-header---->
+			<div class="header">
+				<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" title="stevens helper" /></a>
+				</div>
+				<div class="nav-icon">
+					 <a href="#" class="right_bt" id="activator"><span> </span> </a>
+				</div>
+				 <div class="box" id="box">
+					 <div class="box_content">        					                         
+						<div class="box_content_center">
+						 	<div class="form_content">
+								<div class="menu_box_list">
+									<ul>
+										<li><a href="index.html"><span>Home</span></a></li>
+										<li><a href="notice.html"><span>Notice</span></a></li>
+										<li><a href="#"><span>List</span></a></li>
+										<li><a href="#"><span>My account</span></a></li>									
+										<li><a href="contact.html"><span>Contact us</span></a></li>										
+									</ul>
+								</div>
+								<a class="boxclose" id="boxclose"> <span> </span></a>
+							</div>                                  
+						</div> 	
+					</div> 
+				</div>       	  
+				<div class="top-searchbar">
+					<form>
+						<input type="text" /><input type="submit" value="" />
+					</form>
+				</div>
+				<div class="userinfo">
+					<div class="user">
+						<ul>
+							<li><a href="#"><img src="images/user-pic.png" title="user-name" /><span>sign in</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---//End-header---->
+		<!---start-content---->
+		<div class="content">
+			<div class="wrap">
+			 <div id="main" role="main">
+			      <ul id="tiles">
+			        <!-- These are our grid blocks -->
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img1.jpg" width="200" height="200">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Macbook pro</a></h3>
+				        		<span><a href="#"><label> </label>Sale</a></span>
+				        		<p>Used - like new</p>
+				        		<p>Macbook pro MF840LL/A 13.3-inch with retina display. I bought this laptop 5 month ago 
+				        			and only use at most 50 times,it is quite new.Since I have bought a the latest macbook pro, 
+				        			I want to sale this old one,price is about $1000. If you are interested, please contact me. 
+				        			My stevens account is .....</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img2.jpg" width="200" height="299">
+						<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Piano</a></h3>
+				        		<span><a href="#"><label> </label>Sale</a></span>
+				        		<p>Brand new </p>
+				        		<p>Alesis Coda | 88-Key Digital Piano with Semi-Weighted Keys. I bought 1 month ago by mistake.
+				        			After I received this piano, I even didn't open the box. the price is $250 since the retail
+				        			price in ebay is $290. Please contact me as soon as possible if interested.My stevens account
+				        			is .......</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+					</li>
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img3.jpg" width="200" height="214">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">OnStage at Stevens tickets</a></h3>
+				        		<span><a href="#"><label> </label>sale</a></span>
+				        		<p>limited tickets !</p>
+				        		<p>I have two extra tickets for the OnStage at Stevens show,I sale them with $45 for each 
+				        			instead of the official price $50. My stevens account is ......... contact me!</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img4.jpg" width="200" height="333">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Software Engineering</a></h3>
+				        		<span><a href="#"><label> </label>Sale</a></span>
+				        		<p>Used</p>
+				        		<p>Software Engineering(Ten Edition) from Lan Sommerville. I bought it in last year but now it expects a new holder
+				        			the price is about $25,but we still can talk about the price offline if you really interested in. My account is <!--[if IE]>
+				        			.....	
+				        			<![endif]--> </p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <!----//--->
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img5.jpg" width="200" height="333">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">broadway show</a></h3>
+				        		<span><a href="#"><label> </label>Buy</a></span>
+				        		<p>Need Tickets !</p>
+				        		<p>the boradway show is at the Lyric Theatre for Cirque Du Soleil - Paramour. The tickets for stevens student have been 
+				        			sold out. If you want to sale your tickets, please contact me. I only need one ticket, thank you. My stevens account
+				        			is .........</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li onClick="location.href='single-page.html';">
+			        	<img src="images/img6.jpg" width="200" height="214">
+			        	<div class="post-info">
+			        		<div class="post-basic-info">
+				        		<h3><a href="#">Finding house</a></h3>
+				        		<span><a href="#"><label> </label>Rent</a></span>
+				        		<p>required: near to college </p>
+				        		<p>I'm a 17 spring student, I need to find a room and I want to live near to college,if you have such room for renting,
+				        			please contact me soon, I can't wait for too long. My stevens account is.......'</p>
+			        		</div>
+			        		<div class="post-info-rate-share">
+			        			<div class="rateit">
+			        				<span> </span>
+			        			</div>
+			        			<div class="post-share">
+			        				<span> </span>
+			        			</div>
+			        			<div class="clear"> </div>
+			        		</div>
+			        	</div>
+			        
+			        <!-- End of grid blocks -->
+			      </ul>
+			    </div>
+			</div>
+		</div>
+		<!---//End-content---->
+		<!----wookmark-scripts---->
+		  <script src="js/jquery.imagesloaded.js"></script>
+		  <script src="js/jquery.wookmark.js"></script>
+		  <script type="text/javascript">
+		    (function ($){
+		      var $tiles = $('#tiles'),
+		          $handler = $('li', $tiles),
+		          $main = $('#main'),
+		          $window = $(window),
+		          $document = $(document),
+		          options = {
+		            autoResize: true, // This will auto-update the layout when the browser window is resized.
+		            container: $main, // Optional, used for some extra CSS styling
+		            offset: 20, // Optional, the distance between grid items
+		            itemWidth:280 // Optional, the width of a grid item
+		          };
+		      /**
+		       * Reinitializes the wookmark handler after all images have loaded
+		       */
+		      function applyLayout() {
+		        $tiles.imagesLoaded(function() {
+		          // Destroy the old handler
+		          if ($handler.wookmarkInstance) {
+		            $handler.wookmarkInstance.clear();
+		          }
+		
+		          // Create a new layout handler.
+		          $handler = $('li', $tiles);
+		          $handler.wookmark(options);
+		        });
+		      }
+		      /**
+		       * When scrolled all the way to the bottom, add more tiles
+		       */
+		      function onScroll() {
+		        // Check if we're within 100 pixels of the bottom edge of the broser window.
+		        var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
+		            closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+		
+		        if (closeToBottom) {
+		          // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+		          var $items = $('li', $tiles),
+		              $firstTen = $items.slice(0, 10);
+		          $tiles.append($firstTen.clone());
+		
+		          applyLayout();
+		        }
+		      };
+		
+		      // Call the layout function for the first time
+		      applyLayout();
+		
+		      // Capture scroll event.
+		      $window.bind('scroll.wookmark', onScroll);
+		    })(jQuery);
+		  </script>
+	</body>
+</html>
+

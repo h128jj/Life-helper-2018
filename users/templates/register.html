@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stevens Helper</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.csrf.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/static/js/additional-methods.js"></script>
+    <script type="text/javascript" src="/static/js/additional-methods.min.js"></script>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+<!--<script type="text/javascript">-->
+
+<!--jQuery.validator.setDefaults({-->
+<!--debug: true,-->
+<!--success: "valid"-->
+<!--});-->
+<!--$("#form").validate({-->
+<!--rules: {-->
+<!--password: "required",-->
+<!--confirm_psw: {-->
+<!--equalTo: "#password"-->
+<!--}-->
+<!--}-->
+<!--});-->
+<!--</script>-->
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a>Sign up</a></li>
+        </ol>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <div class="panel">
+            <!--<div class="panel-heading">-->
+                <!--<a style="font-size: 16px">Join us now!</a>-->
+            <!--</div>-->
+            <div class="panel-body">
+                <form class="form-horizontal" id="form" action="/users/register" method="post">{% csrf_token %}
+                    {% if error %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                    {% endif %}
+
+                    {% for field in form %}
+                    {% if field.errors %}
+                    {% for error in field.errors %}
+                    <div class="alert alert-danger" role="alert">{{ field.label }}: {{ error }}</div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 4cm">Email</span>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email"
+                                   aria-describedby="Email" value="{{ form.email.value }}" style="width: 14cm">
+                            <span class="input-group-addon" style="width: 4cm">@stevens.edu</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 4cm">Nickname</span>
+                            <input type="text" class="form-control" name="nickname" id="nickname" placeholder="Nickname"
+                                   aria-describedby="Nickname" value="{{ form.nickname.value }}" style="width: 18cm">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 4cm">Stevens ID</span>
+                            <input type="text" class="form-control" name="stevens_id" id="stevens_id"
+                                   placeholder="Stevens ID"
+                                   aria-describedby="Stevens ID" value="{{ form.stevens_id.value }}" style="width: 18cm">
+                        </div>
+                    </div>
+                    <!--<br>-->
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 4cm">Password</span>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Password" aria-describedby="Password" style="width: 18cm">
+                        </div>
+                        <!--<label id="incorrect" style="visibility: hidden">错</label>-->
+                        <!--<label id="correct" style="visibility: hidden">对</label>-->
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="width: 4cm">Confirm Password</span>
+                            <input type="password" name="confirm_psw" class="form-control" id="confirm_psw"
+                                   placeholder="Confirm Password" aria-describedby="Confirm password"
+                                   onchange="check_psw()" style="width: 18cm">
+                        </div>
+                        <!--<label id="con_correct" style="visibility: hidden">对</label>-->
+                        <!--<label id="con_incorrect" style="visibility: hidden">错</label>-->
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-success">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stevens Helper</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <script type="text/javascript"
+            src="/static/ueditor/ueditor.config.js">
+    </script>
+    <script type="text/javascript"
+            src="/static/ueditor/ueditor.all.js">
+    </script>
+    <script type="text/javascript" charset="utf-8" src="/static/ueditor/lang/en/en.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.csrf.js"></script>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+//        var picture_nums = 1;
+//        var ue = UE.getEditor('container');
+//        var content = $("#contentInput").val();
+//        var content = 'abc<p></p>';
+//        alert(content);
+//        ue.setContent('<p>abc</p>', true);
+
+//        alert(picture_nums);
+
+
+
+//        $("#add_picture").click(function () {
+////            alert(picture_nums);
+//            var id = '#p' + picture_nums;
+//            picture_nums = picture_nums+1;
+//            var next_picture = '<p id="p'+ picture_nums + '">Picture'+ picture_nums +': <input id="Picture'+ picture_nums +'" name="Picture'+ picture_nums +'" type="file"/></p>';
+//            $(id).after(next_picture);
+//        });
+//        $("#del_picture").click(function () {
+////            alert(picture_nums);
+//            if (picture_nums>1){
+//                var id = '#p' + picture_nums;
+//                $(id).remove();
+//                picture_nums = picture_nums-1;
+//            }
+//
+//        });
+//        $("#submit").click(function () {
+////            alert(picture_nums);
+//            $("#picture_num").val(picture_nums);
+//        });
+    });
+</script>
+
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/posts/list/{{ b.id }}">{{ b.name }}</a></li>
+        </ol>
+    </div>
+    <div class="col-xs-10 col-md-10">
+        <form class="form-horizontal" action="/posts/list/{{ b.id }}/new_post.html" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+              {% if field.errors %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger" role="alert">{{ field.label }}: {{ error }}</div>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" class="form-control" id="title"
+                           placeholder="Title" value="{{ form.title.value }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="col-sm-2 control-label">Content</label>
+                <div class="col-sm-10">
+                    <!--load the Ueditor-->
+                    {% autoescape off %}
+                    <script id="container" name="content" type="text/plain">{{ content }}
+                    </script>
+                    {% endautoescape %}
+                    <input type="hidden" name="content" id="contentInput" value="{{ content }}" />
+
+                    <!--<textarea rows="8" name="content" class="form-control" id="content"-->
+                              <!--placeholder="Content">{{ form.content.value }}</textarea>-->
+                    <input type="hidden" rows="8" name="content" class="form-control" id="content"
+                              placeholder="Content">{{ form.content.value }}</input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <!--<label>Upload pictures</label>-->
+                    <!--<input type="button" id="add_picture" value="+"/>-->
+                    <!--<input type="button" id="del_picture" value="-"/>-->
+                    <!--<p id="p1">Picture1: <input id="Picture1" name="Picture1" type="file"/></p>-->
+                    <!--<br/>-->
+                    <div class="col-sm-10">
+
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('container');
+                            function setContent() {
+                                document.getElementById("contentInput").value = ue.getContent();
+                            }
+                        </script>
+                        <input id="picture_num" name="picture_num" type="hidden" value="0"/>
+                        <button type="submit" class="btn btn-success"
+                                id="submit">Publish</button>
+                        Be careful! The FIRST LINE is the description of your post!
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
