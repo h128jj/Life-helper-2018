@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.contrib import staticfiles
 from blocks import views
 from users.views import activate
 from reply.views import create_reply
@@ -24,7 +23,6 @@ from reply.views import create_reply
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
-    # url(r'^static/(?P<path>,*)$', staticfiles.views.serve),
     url(r'^posts/', include('posts.urls')),
     url(r'^users/', include('users.urls')),
     url(r'^activate/(?P<code>\w+)$', activate),
