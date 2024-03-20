@@ -1,2 +1,3 @@
 # Helper
-StevensHelper
+"StevensHelper"
+A self-building website based on Django.
